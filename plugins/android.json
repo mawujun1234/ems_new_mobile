@@ -9,7 +9,14 @@
     "installed_plugins": {
         "cordova-plugin-whitelist": {
             "PACKAGE_NAME": "com.mawujun.ems"
+        },
+        "phonegap-plugin-barcodescanner": {
+            "PACKAGE_NAME": "com.mawujun.ems"
         }
     },
-    "dependent_plugins": {}
+    "dependent_plugins": {
+        "cordova-plugin-compat": {
+            "PACKAGE_NAME": "com.mawujun.ems"
+        }
+    }
 }

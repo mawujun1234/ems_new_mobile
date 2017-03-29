@@ -1,0 +1,203 @@
+
+
+
+/****************************************/
+#page_taskes .buttons-tab .tab-link {
+	font-size: 0.7rem;
+}
+#page_taskes .buttons-tab .tab-link span {
+	font-size: 0.5rem;
+}
+#page_taskes .buttons-tab .tab-link.active {
+	font-size:0.8rem;
+}
+
+#page_taskes .tabs .tab .list-block {
+	margin: 0px;	
+}
+
+#page_taskes .tabs .tab .list-block .item-after {
+	font-size: 0.6rem;
+	padding-top:0.2rem;	
+}
+#page_taskes .tabs .tab .list-block .item-subtitle {
+	font-size: 0.6rem;
+}
+#page_taskes .tabs .tab .list-block .item-text {
+	font-size: 0.6rem;
+	height: 2rem;
+}
+
+#page_task_info .item-title.label {
+	width:30%;
+}
+
+/***扫锟借按钮***/
+.hi-icon-wrap {
+	text-align: center;
+	margin: 0 auto;
+	position:absolute;
+	bottom:3rem;
+	z-index:9999;
+}
+.hi-icon {
+	display: inline-block;
+	font-size: 0.7rem;
+	line-height:2.5rem;
+	cursor: pointer;
+	margin: 15px 30px;
+	width: 2.5rem;
+	height: 2.5rem;
+	border-radius: 50%;
+	text-align: center;
+	position: relative;
+	z-index: 1;
+	color: #fff;
+	/*background-color:#41ab6b;*/
+	background-color:rgba(65, 171,107,0.7);
+	
+}
+
+.hi-icon:after {
+	pointer-events: none;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	border-radius: 50%;
+	content: '';
+	-webkit-box-sizing: content-box; 
+	-moz-box-sizing: content-box; 
+	box-sizing: content-box;
+	box-shadow: 3px 3px rgba(144,238,144,0.8);
+}
+
+.hi-icon-effect-7 .hi-icon {
+	box-shadow: 0 0 0 4px rgba(255,255,255,0.5);
+	-webkit-transition: background 0.2s, color 0.2s;
+	-moz-transition: background 0.2s, color 0.2s;
+	transition: background 0.2s, color 0.2s;	
+}
+
+.hi-icon-effect-7 .hi-icon:hover {
+	color: #fff;
+}
+
+.hi-icon-effect-7 .hi-icon:after {
+	top: -8px;
+	left: -8px;
+	padding: 8px;
+	z-index: -1;
+	opacity: 1;
+}
+
+.hi-icon-cycle {
+	animation:hi-icon-cycle_key 5s infinite;	
+	-webkit-animation:hi-icon-cycle_key 5s infinite;	
+}
+@keyframes hi-icon-cycle_key {
+	from {
+		transform: rotate(0deg);
+		-webkit-transform: rotate(0deg);
+		-moz-transform: rotate(0deg);
+		-ms-transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+		-webkit-transform: rotate(360deg);
+		-moz-transform: rotate(360deg);
+		-ms-transform: rotate(360deg);
+	}
+}
+@-webkit-keyframes hi-icon-cycle_key {
+	from {
+		transform: rotate(0deg);
+		-webkit-transform: rotate(0deg);
+		-moz-transform: rotate(0deg);
+		-ms-transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+		-webkit-transform: rotate(360deg);
+		-moz-transform: rotate(360deg);
+		-ms-transform: rotate(360deg);
+	}
+}
+@-moz-keyframes hi-icon-cycle_key {
+	from {
+		transform: rotate(0deg);
+		-webkit-transform: rotate(0deg);
+		-moz-transform: rotate(0deg);
+		-ms-transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+		-webkit-transform: rotate(360deg);
+		-moz-transform: rotate(360deg);
+		-ms-transform: rotate(360deg);
+	}
+}
+
+/***锟借备锟藉单***/
+#page_task_info_equip_list .item-after {
+	font-size:0.5rem;
+	margin-right:0px;
+}
+#page_task_info_equip_list li {
+	display:flex;flex-flow:row;
+	overflow:hidden;
+	transition:all 0.3s linear;
+	-webkit-transition:all 0.3s linear;
+}
+#page_task_info_equip_list li a.item-link{
+	flex:1;
+}
+#page_task_info_equip_list li a.remove{
+	width:3rem;
+	line-height:230%;
+	display:block; 
+	background-color: #ff0000;
+	color: #fff;
+	text-align: center; 
+	text-decoration:none;
+	margin-right:-3rem;
+}
+#page_task_info_equip_list li.swipeLeft {
+	transform:translateX(-3rem);
+	-webkit-transform:translateX(-3rem);
+	overflow:visible;
+}
+
+#page_equip_info .content .item-title.label {
+	width:30%;
+}
+
+
+/***锟斤拷锟斤拷锟斤拷息***/
+#page_setting .list-block.media-list {
+	margin:0px;
+}
+
+#page_setting .list-block .item-link .item-after {
+	font-size: 0.6rem;
+	padding-top:0.2rem;	
+}
+#page_setting .list-block .item-link .item-subtitle {
+	font-size: 0.6rem;
+}
+#page_setting .list-block .item-link .item-text {
+	font-size: 0.6rem;
+	height: 2rem;
+}
+
+/*****x娑堟伅鍔熻兘鐨勬牱寮�*****/
+#page_message .list-block .item-after {
+	font-size: 0.6rem;
+	padding-top:0.2rem;	
+}
+#page_message .list-block .item-subtitle {
+	font-size: 0.6rem;
+}
+#page_message .list-block .item-text {
+	font-size: 0.6rem;
+	height: 2rem;
+}
