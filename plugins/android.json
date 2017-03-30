@@ -18,6 +18,9 @@
         },
         "cordova-plugin-splashscreen": {
             "PACKAGE_NAME": "com.mawujun.ems"
+        },
+        "cordova-plugin-camera": {
+            "PACKAGE_NAME": "com.mawujun.ems"
         }
     },
     "dependent_plugins": {
