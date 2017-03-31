@@ -21,6 +21,12 @@
         },
         "cordova-plugin-camera": {
             "PACKAGE_NAME": "com.mawujun.ems"
+        },
+        "cordova-plugin-file": {
+            "PACKAGE_NAME": "com.mawujun.ems"
+        },
+        "cordova-plugin-file-transfer": {
+            "PACKAGE_NAME": "com.mawujun.ems"
         }
     },
     "dependent_plugins": {
