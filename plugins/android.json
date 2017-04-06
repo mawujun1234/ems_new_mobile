@@ -27,10 +27,16 @@
         },
         "cordova-plugin-file-transfer": {
             "PACKAGE_NAME": "com.mawujun.ems"
+        },
+        "cordova-plugin-app-update": {
+            "PACKAGE_NAME": "com.mawujun.ems"
         }
     },
     "dependent_plugins": {
         "cordova-plugin-compat": {
+            "PACKAGE_NAME": "com.mawujun.ems"
+        },
+        "cordova-plugin-appversion": {
             "PACKAGE_NAME": "com.mawujun.ems"
         }
     }

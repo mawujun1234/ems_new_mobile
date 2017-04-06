@@ -39,6 +39,10 @@
                         {
                             "xml": "<feature name=\"FileTransfer\"><param name=\"android-package\" value=\"org.apache.cordova.filetransfer.FileTransfer\" /></feature>",
                             "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"AppUpdate\"><param name=\"android-package\" value=\"com.mawujun.updateapp.CheckAppUpdate\" /><param name=\"onload\" value=\"true\" /></feature>",
+                            "count": 1
                         }
                     ]
                 }
@@ -72,12 +76,30 @@
                     "/*": [
                         {
                             "xml": "<uses-permission android:name=\"android.permission.WRITE_EXTERNAL_STORAGE\" />",
-                            "count": 3
+                            "count": 4
+                        },
+                        {
+                            "xml": "<uses-permission android:name=\"android.permission.INTERNET\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<uses-permission android:name=\"android.permission.MOUNT_UNMOUNT_FILESYSTEMS\" />",
+                            "count": 1
                         }
                     ],
                     "application": [
                         {
                             "xml": "<provider android:authorities=\"${applicationId}.provider\" android:exported=\"false\" android:grantUriPermissions=\"true\" android:name=\"android.support.v4.content.FileProvider\"><meta-data android:name=\"android.support.FILE_PROVIDER_PATHS\" android:resource=\"@xml/provider_paths\" /></provider>",
+                            "count": 1
+                        }
+                    ]
+                }
+            },
+            "config.xml": {
+                "parents": {
+                    "/*": [
+                        {
+                            "xml": "<feature name=\"RareloopAppVersion\"><param name=\"android-package\" value=\"com.rareloop.cordova.appversion.RareloopAppVersion\" /></feature>",
                             "count": 1
                         }
                     ]
@@ -108,6 +130,12 @@
             "PACKAGE_NAME": "com.mawujun.ems"
         },
         "cordova-plugin-file-transfer": {
+            "PACKAGE_NAME": "com.mawujun.ems"
+        },
+        "cordova-plugin-appversion": {
+            "PACKAGE_NAME": "com.mawujun.ems"
+        },
+        "cordova-plugin-app-update": {
             "PACKAGE_NAME": "com.mawujun.ems"
         }
     },
@@ -365,6 +393,22 @@
             "clobbers": [
                 "window.FileTransfer"
             ]
+        },
+        {
+            "id": "cordova-plugin-appversion.RareloopAppVersion",
+            "file": "plugins/cordova-plugin-appversion/www/app-version.js",
+            "pluginId": "cordova-plugin-appversion",
+            "clobbers": [
+                "AppVersion"
+            ]
+        },
+        {
+            "id": "cordova-plugin-app-update.AppUpdate",
+            "file": "plugins/cordova-plugin-app-update/www/AppUpdate.js",
+            "pluginId": "cordova-plugin-app-update",
+            "clobbers": [
+                "AppUpdate"
+            ]
         }
     ],
     "plugin_metadata": {
@@ -375,6 +419,8 @@
         "cordova-plugin-splashscreen": "4.0.2",
         "cordova-plugin-camera": "2.4.0",
         "cordova-plugin-file": "4.3.2",
-        "cordova-plugin-file-transfer": "1.6.2"
+        "cordova-plugin-file-transfer": "1.6.2",
+        "cordova-plugin-appversion": "1.0.0",
+        "cordova-plugin-app-update": "1.3.9"
     }
 }

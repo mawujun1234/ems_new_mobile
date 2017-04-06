@@ -62,5 +62,21 @@
         },
         "is_top_level": true,
         "variables": {}
+    },
+    "cordova-plugin-appversion": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-plugin-appversion"
+        },
+        "is_top_level": false,
+        "variables": {}
+    },
+    "cordova-plugin-app-update": {
+        "source": {
+            "type": "local",
+            "path": "E:\\eclipse\\workspace\\cordova_plugin_6.x\\app_update"
+        },
+        "is_top_level": true,
+        "variables": {}
     }
 }
