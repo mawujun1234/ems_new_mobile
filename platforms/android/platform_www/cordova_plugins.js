@@ -1,35 +1,19 @@
 cordova.define('cordova/plugin_list', function(require, exports, module) {
 module.exports = [
     {
-        "id": "phonegap-plugin-barcodescanner.BarcodeScanner",
-        "file": "plugins/phonegap-plugin-barcodescanner/www/barcodescanner.js",
-        "pluginId": "phonegap-plugin-barcodescanner",
+        "id": "cordova-plugin-appversion.RareloopAppVersion",
+        "file": "plugins/cordova-plugin-appversion/www/app-version.js",
+        "pluginId": "cordova-plugin-appversion",
         "clobbers": [
-            "cordova.plugins.barcodeScanner"
+            "AppVersion"
         ]
     },
     {
-        "id": "cordova-plugin-dialogs.notification",
-        "file": "plugins/cordova-plugin-dialogs/www/notification.js",
-        "pluginId": "cordova-plugin-dialogs",
-        "merges": [
-            "navigator.notification"
-        ]
-    },
-    {
-        "id": "cordova-plugin-dialogs.notification_android",
-        "file": "plugins/cordova-plugin-dialogs/www/android/notification.js",
-        "pluginId": "cordova-plugin-dialogs",
-        "merges": [
-            "navigator.notification"
-        ]
-    },
-    {
-        "id": "cordova-plugin-splashscreen.SplashScreen",
-        "file": "plugins/cordova-plugin-splashscreen/www/splashscreen.js",
-        "pluginId": "cordova-plugin-splashscreen",
+        "id": "cordova-plugin-app-update.AppUpdate",
+        "file": "plugins/cordova-plugin-app-update/www/AppUpdate.js",
+        "pluginId": "cordova-plugin-app-update",
         "clobbers": [
-            "navigator.splashscreen"
+            "AppUpdate"
         ]
     },
     {
@@ -62,6 +46,22 @@ module.exports = [
         "pluginId": "cordova-plugin-camera",
         "clobbers": [
             "CameraPopoverHandle"
+        ]
+    },
+    {
+        "id": "cordova-plugin-dialogs.notification",
+        "file": "plugins/cordova-plugin-dialogs/www/notification.js",
+        "pluginId": "cordova-plugin-dialogs",
+        "merges": [
+            "navigator.notification"
+        ]
+    },
+    {
+        "id": "cordova-plugin-dialogs.notification_android",
+        "file": "plugins/cordova-plugin-dialogs/www/android/notification.js",
+        "pluginId": "cordova-plugin-dialogs",
+        "merges": [
+            "navigator.notification"
         ]
     },
     {
@@ -254,35 +254,35 @@ module.exports = [
         ]
     },
     {
-        "id": "cordova-plugin-appversion.RareloopAppVersion",
-        "file": "plugins/cordova-plugin-appversion/www/app-version.js",
-        "pluginId": "cordova-plugin-appversion",
+        "id": "cordova-plugin-splashscreen.SplashScreen",
+        "file": "plugins/cordova-plugin-splashscreen/www/splashscreen.js",
+        "pluginId": "cordova-plugin-splashscreen",
         "clobbers": [
-            "AppVersion"
+            "navigator.splashscreen"
         ]
     },
     {
-        "id": "cordova-plugin-app-update.AppUpdate",
-        "file": "plugins/cordova-plugin-app-update/www/AppUpdate.js",
-        "pluginId": "cordova-plugin-app-update",
+        "id": "phonegap-plugin-barcodescanner.BarcodeScanner",
+        "file": "plugins/phonegap-plugin-barcodescanner/www/barcodescanner.js",
+        "pluginId": "phonegap-plugin-barcodescanner",
         "clobbers": [
-            "AppUpdate"
+            "cordova.plugins.barcodeScanner"
         ]
     }
 ];
 module.exports.metadata = 
 // TOP OF METADATA
 {
+    "cordova-plugin-appversion": "1.0.0",
+    "cordova-plugin-app-update": "1.3.9",
     "cordova-plugin-compat": "1.1.0",
-    "cordova-plugin-whitelist": "1.3.1",
-    "phonegap-plugin-barcodescanner": "6.0.6",
-    "cordova-plugin-dialogs": "1.3.2",
-    "cordova-plugin-splashscreen": "4.0.2",
     "cordova-plugin-camera": "2.4.0",
+    "cordova-plugin-dialogs": "1.3.2",
     "cordova-plugin-file": "4.3.2",
     "cordova-plugin-file-transfer": "1.6.2",
-    "cordova-plugin-appversion": "1.0.0",
-    "cordova-plugin-app-update": "1.3.9"
+    "cordova-plugin-splashscreen": "4.0.2",
+    "cordova-plugin-whitelist": "1.3.1",
+    "phonegap-plugin-barcodescanner": "6.0.6"
 };
 // BOTTOM OF METADATA
 });
