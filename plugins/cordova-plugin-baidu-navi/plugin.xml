@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+    id="cordova-plugin-baidu-navi" version="1.0.0">
+    <name>baidu_navi</name>
+    <description>百度地图导航</description>
+    <license>Apache 2.0</license>
+    <keywords>cordova,baidu,navi</keywords>
+    <js-module src="www/BaiduNavi.js" name="BaiduNavi">
+        <clobbers target="BaiduNavi" />
+    </js-module>
+    <platform name="android">
+        <config-file parent="/*" target="res/xml/config.xml">
+            <feature name="BaiduNavi">
+                <param name="android-package" value="com.mawujun.navi.BaiduNavi"/>
+                <param name="onload" value="false" />  <!-- Must Have -->
+            </feature>
+        </config-file>
+
+        <config-file target="AndroidManifest.xml" parent="/*">
+            <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />  
+			<uses-permission android:name="android.permission.BAIDU_LOCATION_SERVICE" />  
+			<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />  
+			<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />  
+			<uses-permission android:name="android.permission.INTERNET" />  
+			<uses-permission android:name="android.permission.ACCES_MOCK_LOCATION" />  
+			<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />  
+			<uses-permission android:name="com.android.launcher.permission.READ_SETTINGS" />  
+			<uses-permission android:name="android.permission.WAKE_LOCK" />  
+			<uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />  
+			<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />  
+			<uses-permission android:name="android.permission.ACCESS_GPS" />  
+			<!-- SDK1.5需要android.permission.GET_TASKS权限判断本程序是否为当前运行的应用? -->  
+			<uses-permission android:name="android.permission.GET_TASKS" />  
+			<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />  
+			<uses-permission android:name="android.permission.BROADCAST_STICKY" />  
+			<uses-permission android:name="android.permission.WRITE_SETTINGS" />  
+			<!-- 来电消音 -->  
+			<uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS" />  
+			<uses-permission android:name="android.permission.READ_PHONE_STATE" />  
+			<uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />  
+			<uses-permission android:name="android.permission.RECORD_AUDIO" />     
+			 <!-- 摄影机 -->     
+			<uses-permission android:name="android.permission.CAMERA" />
+        </config-file>
+		<config-file target="AndroidManifest.xml" parent="/manifest/application">
+            <service android:name="com.baidu.location.f" android:enabled="true" android:process=":remote"></service>
+            <!-- //key:开发者申请的key -->
+            <meta-data android:name="com.baidu.lbsapi.API_KEY" android:value="Gf2Q8bxraGg8SASQuOmvenLS" />
+			
+			
+			<activity
+				android:name="com.mawujun.navi.BNDemoMainActivity"
+				android:configChanges="orientation|screenSize|keyboard|keyboardHidden"
+				android:label="导航" >
+				<intent-filter>
+					<action android:name="android.intent.action.MAIN" />
+					<category android:name="android.intent.category.LAUNCHER" />
+				</intent-filter>
+			</activity>
+			<activity
+				android:name="com.mawujun.navi.BNDemoGuideActivity"
+				android:configChanges="orientation|screenSize|keyboard|keyboardHidden"
+				android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
+				android:label="初始化" >
+				<intent-filter>
+					<action android:name="android.intent.action.VIEW" />
+					<category android:name="android.intent.category.DEFAULT" />
+				</intent-filter>
+			</activity>
+        </config-file>
+		
+		
+		<source-file src="src/android/com/mawujun/navi/BaiduNavi.java" target-dir="src/com/mawujun/navi" />
+		<source-file src="src/android/com/mawujun/navi/BNDemoGuideActivity.java" target-dir="src/com/mawujun/navi" />
+		<source-file src="src/android/com/mawujun/navi/BNDemoMainActivity.java" target-dir="src/com/mawujun/navi" />
+		<source-file src="libs/armeabi" target-dir="libs"/>   
+		<source-file src="libs/BaiduNaviSDK_3.1.1.jar.properties" target-dir="libs"/> 
+		<source-file src="libs/BaiduNaviSDK_3.3.0.jar" target-dir="libs"/> 
+		<source-file src="libs/galaxy_lite_lbs_v2.0.jar" target-dir="libs"/> 
+		<source-file src="libs/httpmime-4.1.2.jar" target-dir="libs"/> 
+		<source-file src="libs/lbsCoreSDK.jar" target-dir="libs"/> 		
+		
+		<source-file src="assets/BaiduNaviSDK_3.3.0.png" target-dir="assets" /> 
+		<source-file src="assets/BaiduNaviSDK_Resource_3.3.0.png" target-dir="assets" /> 
+		<source-file src="assets/channel" target-dir="assets" />
+		
+		<source-file src="res/values/dimens.xml" target-dir="res/values"/>
+		<!--<source-file src="res/values/strings.xml" target-dir="res/values"/>-->
+		<source-file src="res/values/styles.xml" target-dir="res/values"/>
+        <source-file src="res/layout/activity_main.xml" target-dir="res/layout"/>
+<!--
+        <source-file src="src/android" target-dir="src/com/vaenow/appupdate"/>
+        <source-file src="res/values/appupdate_strings.xml" target-dir="res/values"/>
+        <source-file src="res/values-en/appupdate_strings.xml" target-dir="res/values-en"/>
+        <source-file src="res/values-zh/appupdate_strings.xml" target-dir="res/values-zh"/>
+        <source-file src="res/layout/appupdate_progress.xml" target-dir="res/layout"/>
+-->
+    </platform>
+</plugin>
