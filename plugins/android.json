@@ -7,6 +7,12 @@
         "files": {}
     },
     "installed_plugins": {
+        "cordova-plugin-dialogs": {
+            "PACKAGE_NAME": "com.mawujun.ems"
+        },
+        "cordova-plugin-app-update": {
+            "PACKAGE_NAME": "com.mawujun.ems"
+        },
         "cordova-plugin-baidu-navi": {
             "PACKAGE_NAME": "com.mawujun.ems"
         }

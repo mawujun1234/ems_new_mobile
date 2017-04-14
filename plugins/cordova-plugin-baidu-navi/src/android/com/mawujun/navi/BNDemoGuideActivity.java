@@ -18,7 +18,8 @@ import com.baidu.navisdk.adapter.BNaviBaseCallbackModel;
 import com.baidu.navisdk.adapter.BaiduNaviCommonModule;
 import com.baidu.navisdk.adapter.NaviModuleFactory;
 import com.baidu.navisdk.adapter.NaviModuleImpl;
-import com.mawujun.R;
+import com.mawujun.ems.R;
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -195,19 +196,19 @@ public class BNDemoGuideActivity extends Activity {
 			BNRouteGuideManager.getInstance().onStart();
 		}
 	}
-	private void addCustomizedLayerItems() {
-		List<CustomizedLayerItem> items = new ArrayList<CustomizedLayerItem>();
-		CustomizedLayerItem item1 = null;
-		if (mBNRoutePlanNode != null) {
-			item1 = new CustomizedLayerItem(mBNRoutePlanNode.getLongitude(), mBNRoutePlanNode.getLatitude(),
-					mBNRoutePlanNode.getCoordinateType(), getResources().getDrawable(R.drawable.ic_launcher),
-					CustomizedLayerItem.ALIGN_CENTER);
-			items.add(item1);
-
-			BNRouteGuideManager.getInstance().setCustomizedLayerItems(items);
-		}
-		BNRouteGuideManager.getInstance().showCustomizedLayer(true);
-	}
+//	private void addCustomizedLayerItems() {
+//		List<CustomizedLayerItem> items = new ArrayList<CustomizedLayerItem>();
+//		CustomizedLayerItem item1 = null;
+//		if (mBNRoutePlanNode != null) {
+//			item1 = new CustomizedLayerItem(mBNRoutePlanNode.getLongitude(), mBNRoutePlanNode.getLatitude(),
+//					mBNRoutePlanNode.getCoordinateType(), getResources().getDrawable(R.drawable.ic_launcher),
+//					CustomizedLayerItem.ALIGN_CENTER);
+//			items.add(item1);
+//
+//			BNRouteGuideManager.getInstance().setCustomizedLayerItems(items);
+//		}
+//		BNRouteGuideManager.getInstance().showCustomizedLayer(true);
+//	}
 
 	private static final int MSG_SHOW = 1;
 	private static final int MSG_HIDE = 2;
@@ -219,12 +220,12 @@ public class BNDemoGuideActivity extends Activity {
 			hd = new Handler(getMainLooper()) {
 				public void handleMessage(android.os.Message msg) {
 					if (msg.what == MSG_SHOW) {
-						addCustomizedLayerItems();
+						//addCustomizedLayerItems();
 					} else if (msg.what == MSG_HIDE) {
 						BNRouteGuideManager.getInstance().showCustomizedLayer(false);
 					} else if (msg.what == MSG_RESET_NODE) {
 						BNRouteGuideManager.getInstance().resetEndNodeInNavi(
-								new BNRoutePlanNode(116.21142, 40.85087, "百度大厦11", null, CoordinateType.GCJ02));
+								new BNRoutePlanNode(116.21142, 40.85087, "百度大厦", null, CoordinateType.GCJ02));
 					}
 				};
 			};

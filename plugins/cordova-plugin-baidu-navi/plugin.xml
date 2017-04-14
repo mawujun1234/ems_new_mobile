@@ -45,17 +45,17 @@
 		<config-file target="AndroidManifest.xml" parent="/manifest/application">
             <service android:name="com.baidu.location.f" android:enabled="true" android:process=":remote"></service>
             <!-- //key:开发者申请的key -->
-            <meta-data android:name="com.baidu.lbsapi.API_KEY" android:value="Gf2Q8bxraGg8SASQuOmvenLS" />
+            <meta-data android:name="com.baidu.lbsapi.API_KEY" android:value="lwhp01bYGGOc2ofAA9z1fQ7bGt3aSrOk" />
 			
 			
 			<activity
 				android:name="com.mawujun.navi.BNDemoMainActivity"
 				android:configChanges="orientation|screenSize|keyboard|keyboardHidden"
 				android:label="导航" >
-				<intent-filter>
+				<!--<intent-filter>
 					<action android:name="android.intent.action.MAIN" />
 					<category android:name="android.intent.category.LAUNCHER" />
-				</intent-filter>
+				</intent-filter>-->
 			</activity>
 			<activity
 				android:name="com.mawujun.navi.BNDemoGuideActivity"
@@ -73,12 +73,11 @@
 		<source-file src="src/android/com/mawujun/navi/BaiduNavi.java" target-dir="src/com/mawujun/navi" />
 		<source-file src="src/android/com/mawujun/navi/BNDemoGuideActivity.java" target-dir="src/com/mawujun/navi" />
 		<source-file src="src/android/com/mawujun/navi/BNDemoMainActivity.java" target-dir="src/com/mawujun/navi" />
-		<source-file src="libs/armeabi" target-dir="libs"/>   
-		<source-file src="libs/BaiduNaviSDK_3.1.1.jar.properties" target-dir="libs"/> 
-		<source-file src="libs/BaiduNaviSDK_3.3.0.jar" target-dir="libs"/> 
-		<source-file src="libs/galaxy_lite_lbs_v2.0.jar" target-dir="libs"/> 
+		<source-file src="libs/armeabi/" target-dir="libs"/>  
+		
+		<source-file src="libs/BaiduLBS_Android.jar" target-dir="libs"/> 
 		<source-file src="libs/httpmime-4.1.2.jar" target-dir="libs"/> 
-		<source-file src="libs/lbsCoreSDK.jar" target-dir="libs"/> 		
+		<source-file src="libs/IndoorscapeAlbumPlugin.jar" target-dir="libs"/> 		
 		
 		<source-file src="assets/BaiduNaviSDK_3.3.0.png" target-dir="assets" /> 
 		<source-file src="assets/BaiduNaviSDK_Resource_3.3.0.png" target-dir="assets" /> 
@@ -87,8 +86,10 @@
 		<source-file src="res/values/dimens.xml" target-dir="res/values"/>
 		<!--<source-file src="res/values/strings.xml" target-dir="res/values"/>-->
 		<source-file src="res/values/styles.xml" target-dir="res/values"/>
-        <source-file src="res/layout/activity_main.xml" target-dir="res/layout"/>
-<!--
+        <source-file src="res/layout/activity_bndemomain.xml" target-dir="res/layout"/>
+	<!--	
+		<source-file src="res/drawable-hdpi/ic_launcher.png" target-dir="res/drawable-hdpi"/>
+
         <source-file src="src/android" target-dir="src/com/vaenow/appupdate"/>
         <source-file src="res/values/appupdate_strings.xml" target-dir="res/values"/>
         <source-file src="res/values-en/appupdate_strings.xml" target-dir="res/values-en"/>
