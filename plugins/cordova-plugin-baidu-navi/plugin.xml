@@ -46,7 +46,7 @@
             <service android:name="com.baidu.location.f" android:enabled="true" android:process=":remote"></service>
             <!-- //key:开发者申请的key -->
             <meta-data android:name="com.baidu.lbsapi.API_KEY" android:value="lwhp01bYGGOc2ofAA9z1fQ7bGt3aSrOk" />
-			
+			<service android:name="com.mawujun.navi.LocService"/>
 			
 			<activity
 				android:name="com.mawujun.navi.BNDemoMainActivity"
@@ -70,9 +70,11 @@
         </config-file>
 		
 		
-		<source-file src="src/android/com/mawujun/navi/BaiduNavi.java" target-dir="src/com/mawujun/navi" />
-		<source-file src="src/android/com/mawujun/navi/BNDemoGuideActivity.java" target-dir="src/com/mawujun/navi" />
-		<source-file src="src/android/com/mawujun/navi/BNDemoMainActivity.java" target-dir="src/com/mawujun/navi" />
+		<source-file src="src/android/BaiduNavi.java" target-dir="src/com/mawujun/navi" />
+		<source-file src="src/android/BNDemoGuideActivity.java" target-dir="src/com/mawujun/navi" />    
+		<source-file src="src/android/BNDemoMainActivity.java" target-dir="src/com/mawujun/navi" />                                                                                     
+		<source-file src="src/android/LocService.java" target-dir="src/com/mawujun/navi" />
+
 		<source-file src="libs/armeabi/" target-dir="libs"/>  
 		
 		<source-file src="libs/BaiduLBS_Android.jar" target-dir="libs"/> 

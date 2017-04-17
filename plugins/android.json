@@ -15,6 +15,9 @@
         },
         "cordova-plugin-baidu-navi": {
             "PACKAGE_NAME": "com.mawujun.ems"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "com.mawujun.ems"
         }
     },
     "dependent_plugins": {

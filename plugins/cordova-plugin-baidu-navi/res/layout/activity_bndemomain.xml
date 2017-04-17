@@ -31,6 +31,7 @@
         android:id="@+id/mDb06llNaviBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textSize="26dp"
         android:text="正在初始化..." />
 
 </LinearLayout>
