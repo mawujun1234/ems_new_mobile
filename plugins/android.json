@@ -13,10 +13,13 @@
         "cordova-plugin-app-update": {
             "PACKAGE_NAME": "com.mawujun.ems"
         },
-        "cordova-plugin-baidu-navi": {
+        "cordova-plugin-whitelist": {
             "PACKAGE_NAME": "com.mawujun.ems"
         },
-        "cordova-plugin-whitelist": {
+        "cordova-plugin-device": {
+            "PACKAGE_NAME": "com.mawujun.ems"
+        },
+        "cordova-plugin-baidu-navi": {
             "PACKAGE_NAME": "com.mawujun.ems"
         }
     },

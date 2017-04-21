@@ -1,7 +1,13 @@
 package com.mawujun.navi;
 
 
+import android.app.AlertDialog;
+import android.content.ActivityNotFoundException;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.location.LocationManager;
+import android.provider.Settings;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -10,6 +16,7 @@ import com.baidu.location.BDLocationListener;
 import com.baidu.location.LocationClient;
 import com.baidu.location.LocationClientOption;
 import com.baidu.navisdk.adapter.BNRoutePlanNode.CoordinateType;
+import com.mawujun.mobile.gps.model.Constants;
 
 import org.apache.cordova.CallbackContext;
 import org.apache.cordova.CordovaPlugin;
@@ -26,6 +33,7 @@ import static com.baidu.location.LocationClientOption.*;
 public class BaiduNavi extends CordovaPlugin {
     //private static final String NAVI_ACTION = "navi";
     public static final String LOG_TAG = "BaiduNavi";
+    private CoordinateType mCoordinateType = CoordinateType.WGS84;
     @Override
     public boolean execute(String action,final JSONArray args, final CallbackContext callbackContext) throws JSONException {
         if ("navi".equals(action)) {
@@ -59,7 +67,7 @@ public class BaiduNavi extends CordovaPlugin {
                     Intent intent = new Intent().setClass(cordova.getActivity(), BNDemoMainActivity.class);
                     intent.putExtra("longitude", longitude);
                     intent.putExtra("latitude", latitude);
-                    //intent.putExtra("coordinateType", coordinateType);
+                    intent.putExtra("coordinateType", mCoordinateType.toString());
                     cordova.startActivityForResult(cordovaPlugin, intent, 1);
 
                     //下面三句为cordova插件回调页面的逻辑代码
@@ -74,8 +82,15 @@ public class BaiduNavi extends CordovaPlugin {
         } else if("loc".equals(action)){//如果是发送定位数据到后台
             Intent intent=new Intent(cordova.getActivity(), LocService.class);
 //            intent.putExtra("uploadUrl", params.getString("uploadUrl"));
-//            intent.putExtra("gps_interval", params.getInt("gps_interval"));
-//            intent.putExtra("params", params.toString());
+            JSONObject params=args.getJSONObject(0);
+            Constants.setClientId(params.getString("session_id"));
+            Constants.setUser_id(params.getString("user_id"));
+            Constants.setLoginName(params.getString("login_name"));
+            Constants.setUuid(params.getString("uuid"));
+
+            //intent.putExtra("sessionId",args.getString(0));
+
+            intent.putExtra("coordinateType", mCoordinateType.toString());
 //            //initGPS();
             cordova.getActivity().startService(intent);
             callbackContext.success("success");
@@ -95,7 +110,6 @@ public class BaiduNavi extends CordovaPlugin {
         callbackContext.error(json);
     }
 
-    public LocationClient mLocationClient = null;
 
 //    @Override
 //    public void onStart() {
@@ -107,5 +121,61 @@ public class BaiduNavi extends CordovaPlugin {
 //        initLocation();
 //    }
 
+    public void initGPS(){
+        LocationManager locationManager = (LocationManager)cordova.getActivity().getSystemService(Context.LOCATION_SERVICE);
+        boolean bool= locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER);
+        if(!bool){
+            new AlertDialog.Builder(cordova.getActivity())
+                    .setTitle("系统提示")
+                    // 设置对话框标
+                    .setMessage("请打开gps！")
+                    // 设置显示的内容
+                    .setPositiveButton("确定",
+                            new DialogInterface.OnClickListener() {// 添加确定按钮
 
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {// 确定按钮的响应事件
+
+                                    Intent intent = new Intent();
+                                    intent.setAction(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
+                                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                                    try
+                                    {
+                                        cordova.getActivity().startActivity(intent);
+                                    } catch(ActivityNotFoundException ex)
+                                    {
+                                        // General settings activity
+                                        intent.setAction(Settings.ACTION_SETTINGS);
+                                        try {
+                                            cordova.getActivity().startActivity(intent);
+                                        } catch (Exception e) {
+                                        }
+                                    }
+                                }
+
+                            })
+                    .setNegativeButton("取消",
+                            new DialogInterface.OnClickListener() {// 添加返回按钮
+
+                                @Override
+                                public void onClick(DialogInterface dialog,
+                                                    int which) {// 响应事件
+
+
+                                }
+
+                            }).show();
+
+        }
+
+    }
+
+    @Override
+    public void onDestroy() {
+
+        //releaseWakeLock();
+        cordova.getActivity().stopService(new Intent(cordova.getActivity(), LocService.class));
+        //stopPollingService(cordova.getActivity());
+        super.onDestroy();
+    }
 }
