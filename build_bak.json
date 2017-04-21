@@ -1,5 +1,12 @@
 {
     "android": {
+        "debug": {
+            "keystore":"./release-key.jks",
+            "storePassword": "emsnewmobile",
+            "alias": "ems_new_mobile",
+            "password" : "emsnewmobile",
+            "keystoreType": ""
+        },
         "release": {
             "keystore": "./release-key.jks",
             "storePassword": "emsnewmobile",
